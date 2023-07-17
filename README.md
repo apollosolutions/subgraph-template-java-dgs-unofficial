@@ -2,7 +2,7 @@
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/Jomu73?referralCode=xsbY2R)
 
-This is an example application template that can be used to create Federated GraphQL subgraph using [DGS Framework](https://netflix.github.io/dgs/). You can use this template from [Rover](https://www.apollographql.com/docs/rover/commands/template/) with `rover template use --template subgraph-java-dgs`.
+This is an example application template that can be used to create Federated GraphQL subgraph using [DGS Framework](https://netflix.github.io/dgs/).
 
 This example application implements following GraphQL schema:
 
