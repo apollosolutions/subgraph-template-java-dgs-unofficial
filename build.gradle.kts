@@ -22,6 +22,12 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:latest.release")
+    }
+}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
