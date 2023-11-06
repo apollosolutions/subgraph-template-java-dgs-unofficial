@@ -1,31 +1,32 @@
-directive @contact(
-    "Contact title of the subgraph owner"
-    name: String!
-    "URL where the subgraph's owner can be reached"
-    url: String
-    "Other relevant notes can be included here; supports markdown links"
-    description: String
-) on SCHEMA
-
-schema
-@contact(
-    name: "FooBar Server Team"
-    url: "https://myteam.slack.com/archives/teams-chat-room-url"
-    description: "send urgent issues to [#oncall](https://yourteam.slack.com/archives/oncall)."
-)
-@link(
-    url: "https://specs.apollo.dev/federation/v2.0",
-    import: ["@key"]
-) {
-    query: Query
-}
 
 type Query {
-    shows(titleFilter: String): [Show]
+    tracks: [Track]
 }
 
-type Show @key(fields: "id") {
+type Mutation {
+    incrementTrackViews(id: ID!): IncrementTrackViewsResponse
+}
+
+type IncrementTrackViewsResponse {
+    "Similar to HTTP status code, represents the status of the mutation"
+    code: Int!
+    "Indicates whether the mutation was successful"
+    success: Boolean!
+    "Human-readable message for the UI"
+    message: String!
+    "Newly updated track after a successful mutation"
+    track: Track
+}
+
+type Track {
     id: ID!
     title: String
-    releaseYear: Int
+    authorId: String
+    modules: [Module]
+    numberOfViews: Int
+}
+
+type Module {
+    id: ID!
+    title: String
 }
