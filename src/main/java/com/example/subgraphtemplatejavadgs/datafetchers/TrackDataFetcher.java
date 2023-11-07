@@ -25,7 +25,6 @@ public class TrackDataFetcher {
         return tracksService.load();
     }
 
-    // set up data loader pattern in its own data fetcher
     @DgsData(parentType="Track")
     public List<TrackModule> modules(DgsDataFetchingEnvironment dfe) throws IOException, InterruptedException {
         Track track = dfe.getSource();
